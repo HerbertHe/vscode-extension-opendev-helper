@@ -1,5 +1,6 @@
 import * as vscode from "vscode"
 import { checkGitRemoteURLs } from "./checkers/checkGitRemoteURLs"
+import { RemotePanel } from "./webviews/RemotePanel"
 
 export function activate(context: vscode.ExtensionContext) {
     console.log(
@@ -11,9 +12,10 @@ export function activate(context: vscode.ExtensionContext) {
     // 注册指令
     context.subscriptions.push(
         vscode.commands.registerCommand("opendev-helper.helloWorld", () => {
-            vscode.window.showInformationMessage(
-                "Hello World from opendev-helper!"
-            )
+            // vscode.window.showInformationMessage(
+            //     "Hello World from opendev-helper!"
+            // )
+            RemotePanel("测试", "https://github.com")
         })
     )
 }
