@@ -1,5 +1,20 @@
-import path from "path"
+import * as fs from "fs"
+import * as path from "path"
+import * as vscode from "vscode"
 
-function checkIsGitRepo() {
-    // 获取项目文件夹下的 .git 目录
+/**
+ * Check if current workspace is a git repo
+ * @returns
+ */
+export function checkIsGitRepo() {
+    const current_workspace_folder =
+        vscode.workspace.workspaceFolders?.[0]?.uri?.fsPath
+    if (
+        !!current_workspace_folder &&
+        fs.existsSync(path.join(current_workspace_folder, ".git"))
+    ) {
+        return [true, current_workspace_folder]
+    }
+
+    return [false, current_workspace_folder]
 }

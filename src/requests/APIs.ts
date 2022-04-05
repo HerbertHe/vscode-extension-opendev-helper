@@ -1,1 +1,8 @@
-// GitHub 开放 API
+/**
+ * GitHub Open API
+ */
+export const GitHubOpenAPI = ` https://api.github.com`
+
+/**
+ * Gitee Open API
+ */
